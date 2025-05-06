@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+    --bg-color: #f0f4f9;
+    --card-bg-color: #f8fafd;
+    --card-icon-sys-bg-color: #f9d4d4;
+    --card-icon-dia-bg-color: #d2ffeb;
+    --card-icon-bpm-bg-color: #d5eeff;
+    --font-color: #303132;
+    --danger: rgb(223, 39, 30);
+    --warning: rgb(255, 166, 0);
+    --good: rgb(68, 128, 0);
+    --low: #1d65eb;
+    --white: #fff;
+
+    --default-transition: all .2s ease-in;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+a, .u-link {
+    color: var(--font-color);
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--bg-color);
+    display: grid;
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    min-height: 100vh;
+    padding: 3rem;
+    place-items: center;
+}
