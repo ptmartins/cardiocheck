@@ -25,7 +25,11 @@ mongoose.connect(process.env.DB_URL, {
     console.error('MongoDB connection error:', err);
 });
 
-app.engine('handlebars', engine());
+app.engine('handlebars', engine({
+    layoutsDir: path.join(__dirname, 'views', 'layouts'),
+    partialsDir: path.join(__dirname, 'views', 'partials'),
+    defaultLayout: 'main'
+}));
 app.set('view engine', 'handlebars');
 app.set('views', __dirname + '/views');
 app.use(express.static('public'));
