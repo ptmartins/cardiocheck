@@ -1,1 +1,10 @@
 <h1>{{title}}</h1>
+
+<form action="/readings" method="POST">
+    {{> formField type="number" name="sys" label="Systolic" placeholder="Enter systolic reading" required=true }}
+    {{> formField type="number" name="dia" label="Diastolic" placeholder="Enter diastolic reading" required=true }}
+    {{> formField type="number" name="bpm" label="Bpm" placeholder="Enter bpm reading" required=true }}
+
+    <a href="/readings">Cancel</a>
+    <button type="submit">Create</button>
+</form>

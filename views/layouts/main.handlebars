@@ -9,8 +9,14 @@
 <body>
     {{!-- HEADER --}}
     {{>header}}
+    {{!-- ERROR --}}
+    {{#if error}}
+        {{>error}}
+    {{/if}}
     {{!-- MAIN CONTENT --}}
-    {{{body}}}
+    <main class="main">
+        {{{body}}}
+    </main>
     {{!-- FOOTER --}}
     {{>footer}}
 </body>

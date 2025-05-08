@@ -7,8 +7,9 @@ import { fileURLToPath } from 'url';
 import express from 'express';
 import mongoose from 'mongoose';
 import { engine } from 'express-handlebars';
-import indexRouter from './routes/index.js';
-import readingsRouter from './routes/readings.js';
+import indexRouter from './routes/index.route.js';
+import readingsRouter from './routes/readings.route.js';
+import bodyParser from 'body-parser';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -25,6 +26,8 @@ mongoose.connect(process.env.DB_URL, {
     console.error('MongoDB connection error:', err);
 });
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.engine('handlebars', engine({
     layoutsDir: path.join(__dirname, 'views', 'layouts'),
     partialsDir: path.join(__dirname, 'views', 'partials'),
@@ -41,7 +44,12 @@ app.use((req, res, next) => {
         title: '404 Not Found',
         message: 'Page not found'
     });
-  })
+  });
+  app.use(bodyParser.urlencoded({ 
+    extended: false,
+    limit: '10mb' 
+
+}));
 
 app.listen(port, ()=>{
     console.log(`Server is running on http://localhost:${port}`);

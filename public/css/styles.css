@@ -31,13 +31,54 @@ a, .u-link {
     text-decoration: none;
 }
 
+ul {
+    list-style: none;
+}
+
+.btn {
+    background-color: red;
+    border-radius: 4px;
+    padding: .75rem;
+}
+
+html {
+    font-size: 16px;
+}
+
 body {
     background-color: var(--bg-color);
-    display: grid;
+    display: flex;
+    flex-direction: column;
     font-family: "Inter", sans-serif;
     font-size: 1rem;
     line-height: 1.5;
     min-height: 100vh;
     padding: 3rem;
-    place-items: center;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 2rem;;
+}
+
+.nav {
+    font-size: 1.2rem;
+}
+
+.nav__list {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.main {
+    flex-grow: 1;
+    margin-block: 3rem;
+}
+
+.footer {
+    text-align: center;
 }

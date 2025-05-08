@@ -1,1 +1,16 @@
+
 <h1>{{title}}</h1>
+<a href="/readings/new" class="btn">Add new reading</a>
+{{#if readings}}
+    <ul>
+        {{#each readings}}
+            <li>
+                {{#each this}}
+                    <span>{{this.sys}}</span> <span>{{this.dia}}</span> <span>{{this.bpm}}
+                {{/each}}
+            </li>
+        {{/each}}
+    </ul>
+{{else}}
+    <p>No readings found.</p>
+{{/if}}
