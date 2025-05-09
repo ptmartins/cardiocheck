@@ -19,4 +19,11 @@ const readingsSchema = new mongoose.Schema({
     }
 });
 
+// readingsSchema.method("toJSON", async function() {
+//     console.log("toJSON called");
+//     const { __v, _id, ...object } = await this.toObject({getters: true});
+//     object.id = String(_id);
+//     return object;
+// });
+
 export default mongoose.model('Readings', readingsSchema);

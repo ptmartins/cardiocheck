@@ -1,3 +1,47 @@
-<h1>Homepage - v1</h1>
 
-<p><span>{{sys}}</span> <span>{{dia}}</span> <span>{{bpm}}</span> </p>
+<section class="section">
+    <div class="section__title">
+        <h2>{{title}}</h2>
+    </div>
+    <div class="dashboard">
+        <div class="slot">
+            <span class="slot__icon slot__icon--sys material-symbols-outlined"> heart_plus </span>
+            <div class="slot__title">
+                <h2>Systolic</h2>
+                <p>mmHg</p>
+            </div>
+            <div class="slot__value">
+                {{dashSys}}
+            </div>
+        </div>
+        <div class="slot">
+            <span class="slot__icon slot__icon--dia material-symbols-outlined"> heart_minus </span>
+            <div class="slot__title">
+                <h2>Diastolic</h2>
+                <p>mmHg</p>
+            </div>
+            <div class="slot__value">
+                {{dashDia}}
+            </div>
+        </div>
+        <div class="slot">
+            <span class="slot__icon slot__icon--bpm material-symbols-outlined"> cardiology </span>
+            <div class="slot__title">
+                <h2>Heart Rate</h2>
+                <p>bpm</p>
+            </div>
+            <div class="slot__value">
+                {{dashBpm}}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section__title">
+        <h2>Latest Reading</h2>
+    </div>
+    <div class="latest-reading">
+        {{>reading}}
+    </div>
+</section>

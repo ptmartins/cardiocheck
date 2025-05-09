@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 // New Reading
 router.get('/new', (req, res) => {
     res.render('readings/new', {
-         title: 'New Reading',
+         title: 'Add new reading',
          reading: new Readings(),
         }
     );

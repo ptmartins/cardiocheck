@@ -2,18 +2,20 @@
 
 :root {
     --bg-color: #f0f4f9;
-    --card-bg-color: #f8fafd;
-    --card-icon-sys-bg-color: #f9d4d4;
-    --card-icon-dia-bg-color: #d2ffeb;
-    --card-icon-bpm-bg-color: #d5eeff;
+    --black: #000;
+    --border-radius: 5px;
+    --btn-bg: #2a2a2a;
+    --default-transition: all .2s ease-in;
     --font-color: #303132;
     --danger: rgb(223, 39, 30);
     --warning: rgb(255, 166, 0);
     --good: rgb(68, 128, 0);
     --low: #1d65eb;
+    --slot-bg-color: #f8fafd;
+    --slot-icon-sys-bg-color: #f9d4d4;
+    --slot-icon-dia-bg-color: #d2ffeb;
+    --slot-icon-bpm-bg-color: #d5eeff;
     --white: #fff;
-
-    --default-transition: all .2s ease-in;
 }
 
 * {
@@ -36,9 +38,15 @@ ul {
 }
 
 .btn {
-    background-color: red;
-    border-radius: 4px;
+    background-color: var(--btn-bg);
+    border-radius: var(--border-radius);
+    color: var(--white);
     padding: .75rem;
+    transition: var(--default-transition);
+
+    &:hover {
+        background-color: var(--black);
+    }
 }
 
 html {
@@ -48,6 +56,7 @@ html {
 body {
     background-color: var(--bg-color);
     display: flex;
+    color: var(--font-color);
     flex-direction: column;
     font-family: "Inter", sans-serif;
     font-size: 1rem;
@@ -56,13 +65,38 @@ body {
     padding: 3rem;
 }
 
+.mainWrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+    width: 1440px;
+}
+
+.wrapper {
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 0 24px rgba(0, 0, 0, .18);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-block-end: 3rem;
+    min-height: 50vh;
+    padding: 3rem;
+}
+
 .header {
+    align-items: center;
+    border-block-end: 1px solid var(--black);
     display: flex;
     justify-content: space-between;
+    padding-block-end: 1.5rem;
 }
 
 .logo {
-    font-size: 2rem;;
+    font-size: 2.7rem;
 }
 
 .nav {
@@ -76,9 +110,154 @@ body {
 
 .main {
     flex-grow: 1;
+    flex-shrink: 0;
     margin-block: 3rem;
+    position: relative;
+}
+
+.dashboard {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: space-between;
+    margin-block-end: 3rem;
+
+    .slot {
+        align-items: center;
+        display: flex;
+        flex-grow: 1;
+        gap: .75rem;
+        justify-content: space-between;
+    }
+}
+
+.section {
+    margin-block-end: 4.5rem;
+}
+
+.section__title {
+    font-size: 1.3rem;
+    margin-bottom: 1.8rem;
+}
+
+.slot,
+.reading {
+    background-color: #f8fafd;
+    padding: 1.5rem;
+}
+
+.slot__icon {
+    border-radius: 6px;
+    font-size: 2.4rem;
+    padding: .75rem;
+}
+
+.slot__icon--sys,
+.reading__icon--sys {
+    background-color: var(--slot-icon-sys-bg-color);
+}
+
+.slot__icon--dia,
+.reading__icon--dia {
+    background-color: var(--slot-icon-dia-bg-color);
+}
+
+.slot__icon--bpm,
+.reading__icon--bpm  {
+    background-color: var(--slot-icon-bpm-bg-color);
+}
+
+.slot__title {
+    margin-inline-end: auto;
+
+    p {
+        font-size: 13px;
+        opacity: .65;
+    }
+}
+
+.slot__value {
+    color: var(--black);
+    font-size: 2.3rem;
+    font-weight: 700;
+}
+
+.reading {
+    display: flex;
+    gap: 3rem;
+    margin-block-end: .75rem;
+}
+
+.reading__date, 
+.reading__sys, 
+.reading__dia, 
+.reading__bpm {
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+    font-size: 1.1rem;
+    gap: .75rem;
+    position: relative;
+}
+
+.reading__icon {
+    border-radius: 5px;
+    font-size: 2rem;
+    padding: .75rem;
+}
+
+.reading__val strong {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.form--addNew {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: space-between;
+
+    .slot {
+        flex-grow: 1;
+    }
+}
+
+.form__actions {
+    width: 100%;
 }
 
 .footer {
     text-align: center;
+}
+
+.form__field {
+    margin-block-end: 1.5rem;
+}
+
+.form__label {
+    display: block;
+    margin-block-end: .75rem;;
+}
+
+.form__input {
+    padding: .5rem;
+}
+
+.error {
+    display: grid;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    place-items: center;
+    position: absolute;
+    translate: -50% -50%;
+}
+
+.error__status {
+    font-size: 14rem;
+    font-weight: 700;
+    margin-block-end: 3rem;
+}
+
+.error__message {
+    font-size: 1.3rem;
+    margin-block-end: 1.5rem;
 }
