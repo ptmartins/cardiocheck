@@ -9,6 +9,7 @@ import mongoose from 'mongoose';
 import { engine } from 'express-handlebars';
 import indexRouter from './routes/index.route.js';
 import readingsRouter from './routes/readings.route.js';
+import apiRouter from './routes/api.route.js';
 import bodyParser from 'body-parser';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -38,6 +39,7 @@ app.set('views', __dirname + '/views');
 app.use(express.static('public'));
 app.use('/', indexRouter);
 app.use('/readings', readingsRouter);
+app.use('/api', apiRouter);
 app.use((req, res, next) => {
     res.status(404).render('404', {
         layout: 'main',

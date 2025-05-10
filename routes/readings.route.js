@@ -6,7 +6,8 @@ const router = express.Router();
 // All Readings
 router.get('/', async (req, res) => {
     try {
-        const readings = await Readings.find();
+        const readings = await Readings.find().lean();
+        console.log(readings);
         res.render('readings/index', {
             title: 'All Readings',
             readings: readings,

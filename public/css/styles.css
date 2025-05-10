@@ -38,15 +38,23 @@ ul {
 }
 
 .btn {
-    background-color: var(--btn-bg);
+    border: 2px solid var(--black);
     border-radius: var(--border-radius);
-    color: var(--white);
-    padding: .75rem;
+    color: var(--black);
+    font-size: 1.1rem;
+    line-height: 1;
+    padding: .75rem 1.5rem;
     transition: var(--default-transition);
 
     &:hover {
         background-color: var(--black);
+        color: var(--white);
     }
+}
+
+.btn--main {
+    background-color: var(--btn-bg);
+    color: var(--white);
 }
 
 html {
@@ -111,7 +119,7 @@ body {
 .main {
     flex-grow: 1;
     flex-shrink: 0;
-    margin-block: 3rem;
+    margin-block-start: 3rem;
     position: relative;
 }
 
@@ -131,12 +139,18 @@ body {
 }
 
 .section {
-    margin-block-end: 4.5rem;
+    margin-block-end: 6rem;
+}
+
+.section__header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-block-end: 1.5rem;
 }
 
 .section__title {
-    font-size: 1.3rem;
-    margin-bottom: 1.8rem;
+    font-size: 1.5rem;
 }
 
 .slot,
@@ -222,6 +236,9 @@ body {
 }
 
 .form__actions {
+    align-items: center;
+    display: flex;
+    gap: .75rem;
     width: 100%;
 }
 

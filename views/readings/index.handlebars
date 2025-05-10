@@ -1,16 +1,17 @@
+<section class="section">
+    <div class="section__header">
+        <h2 class="section__title">{{title}}</h2>
+        <a href="/readings/new" class="btn btn--main">Add new reading</a>
+    </div>
+    {{#if readings}}
+        <div class="readings">
+            {{#each readings}}
 
-<h1>{{title}}</h1>
-<a href="/readings/new" class="">Add new reading</a>
-{{#if readings}}
-    <ul>
-        {{#each readings}}
-            <li>
-                {{#each this}}
-                    <span>{{this.sys}}</span> <span>{{this.dia}}</span> <span>{{this.bpm}}
-                {{/each}}
-            </li>
-        {{/each}}
-    </ul>
-{{else}}
-    <p>No readings found.</p>
-{{/if}}
+                    {{>reading sys=this.sys dia=this.dia bpm=this.bpm}}
+
+            {{/each}}
+        </div>
+    {{else}}
+        <p>No readings found.</p>
+    {{/if}}
+</section>
