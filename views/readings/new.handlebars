@@ -1,14 +1,16 @@
-<div class="card">
-    <h1 class="card__title">{{title}}</h1>
+<section class="section">
+    <div class="section__header">
+        <h2 class="section__title">{{title}}</h1>
+    </div>
 
     <form action="/readings" method="POST" class="form form--addNew">
-        {{> formField type="number" name="sys" label="Systolic" placeholder="Enter systolic reading" required=true }}
-        {{> formField type="number" name="dia" label="Diastolic" placeholder="Enter diastolic reading" required=true }}
-        {{> formField type="number" name="bpm" label="Bpm" placeholder="Enter bpm reading" required=true }}
-
+        {{> formField type="number" name="sys" label="Systolic" required=true }}
+        {{> formField type="number" name="dia" label="Diastolic" required=true }}
+        {{> formField type="number" name="bpm" label="Bpm" required=true }}
+        {{> formField type="text" name="date" label="Date" required=true }}
         <div class="form__actions">
             <button type="submit" class="btn btn--main">Create</button>   
             <a href="/readings" class="btn">Cancel</a>
         </div>
     </form>
-</div>
+</section>

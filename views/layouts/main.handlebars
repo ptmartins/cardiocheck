@@ -14,12 +14,12 @@
         <div class="wrapper">
             {{!-- HEADER --}}
             {{>header}}
-            {{!-- ERROR --}}
-            {{#if error}}
-                {{>error}}
-            {{/if}}
             {{!-- MAIN CONTENT --}}
             <main class="main">
+                {{!-- ERROR --}}
+                {{#if error}}
+                    {{>error}}
+                {{/if}}
                 {{{body}}}
             </main>
         </div>

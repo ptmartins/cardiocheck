@@ -8,7 +8,8 @@
 
     let init = () => {
         cacheDOM();
-        if(DOM.error !== undefined) {
+        debugger;
+        if(DOM.error) {
             let goBack = document.querySelector('.goBack');
 
             goBack.addEventListener('click', ev => {
