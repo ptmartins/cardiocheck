@@ -1,14 +1,11 @@
 <section class="section">
     <div class="section__header">
         <h2 class="section__title">{{title}}</h2>
-        <a href="/readings/new" class="btn btn--main">Add new reading</a>
     </div>
     {{#if readings}}
         <div class="readings">
             {{#each readings}}
-
-                    {{>reading sys=this.sys dia=this.dia bpm=this.bpm}}
-
+                {{>reading date=(formatDate this.date) sys=this.sys dia=this.dia bpm=this.bpm}}
             {{/each}}
         </div>
     {{else}}

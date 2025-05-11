@@ -32,7 +32,12 @@ app.use(express.urlencoded({ extended: true }));
 app.engine('handlebars', engine({
     layoutsDir: path.join(__dirname, 'views', 'layouts'),
     partialsDir: path.join(__dirname, 'views', 'partials'),
-    defaultLayout: 'main'
+    defaultLayout: 'main',
+    helpers: {
+        formatDate: (date) => {
+            return new Date(date).toLocaleString();
+        }
+    }
 }));
 app.set('view engine', 'handlebars');
 app.set('views', __dirname + '/views');

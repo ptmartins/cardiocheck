@@ -7,7 +7,6 @@ const router = express.Router();
 router.get('/', async (req, res) => {
     try {
         const readings = await Readings.find().lean();
-        console.log(readings);
         res.render('readings/index', {
             title: 'All Readings',
             readings: readings,
@@ -31,20 +30,18 @@ router.post('/', async (req, res) => {
     const reading = new Readings({
         sys: req.body.sys,
         dia: req.body.dia,
-        bpm: req.body.bpm
+        bpm: req.body.bpm,
+        date: req.body.date
     });
 
     try {
         const newReading = await reading.save();
-        console.log('Reading saved:', newReading);
         res.redirect('readings/');
     } catch (err) {
-        console.error('Error saving reading:', err);
-        res.render('readings/new', {
-            title: 'New Reading',
+        res.status(400).json({
             error: true,
-            errorMessage: 'Error adding reading. Please try again.',
-        });
+            errorMessage: 'Error adding reading. Please try again'
+        })
     }
 });
 
