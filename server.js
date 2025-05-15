@@ -1,6 +1,8 @@
-if(process.env.NODE_ENV !== 'production') {
-    await import('dotenv/config');
-}
+// if(process.env.NODE_ENV !== 'production') {
+//     await import('dotenv/config');
+// }
+
+import 'dotenv/config';
 
 import path from 'path';
 import { fileURLToPath } from 'url';
