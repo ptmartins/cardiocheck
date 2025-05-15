@@ -15,8 +15,7 @@
     "body-parser": "^2.2.0",
     "express": "^5.1.0",
     "express-handlebars": "^8.0.1",
-    "mongoose": "^8.14.1",
-    "notisjs": "^1.0.0"
+    "mongoose": "^8.14.1"
   },
   "devDependencies": {
     "dotenv": "^16.5.0"

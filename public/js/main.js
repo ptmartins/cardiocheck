@@ -1,5 +1,3 @@
-import notis from 'notisjs';
-
 (function() {
 
     let DOM = {};
@@ -21,12 +19,7 @@ import notis from 'notisjs';
     let init = () => {
         cacheDOM();
         attachDatePicker();
-        notis.show({
-            message: 'Fuckin A!',
-            state: 'success',
-            position: 'top-right',
-            duration: 5000
-        });
+
         if(DOM.error) {
             let goBack = document.querySelector('.goBack');
 
