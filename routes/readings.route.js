@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
         sys: req.body.sys,
         dia: req.body.dia,
         bpm: req.body.bpm,
-        date: req.body.date
+        dateTime: new Date(req.body.date)
     });
 
     try {

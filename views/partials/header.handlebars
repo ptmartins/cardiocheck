@@ -5,17 +5,29 @@
         </a>
     <nav class="nav">
         <ul class="nav__list">
-            <li class="nav__item">
-                <a href="/">Dashboard</a></li>
-            <li class="nav__item">
+            <li class="nav__item" data-path="dashboard">
+                <a href="/">Dashboard</a>
+            </li>
+            <li class="nav__item" data-path="readings">
                 <a href="/readings">Readings</a>
             </li>
-            <li class="nav__item">
+            <li class="nav__item" data-path="charts">
                 <a href="/charts">Charts</a>
-            </li>
-            <li class="nav__item">
-                <a href="/readings/new" class="btn">Add new reading</a>
             </li>
         </ul>
     </nav>
+    <a href="/readings/new" class="btn">Add new reading</a>
+    <div class="mobileNav">
+        <div class="mobileNav__toggle material-symbols-outlined">menu</div>
+        <ul class="mobileNav__list isHidden">
+            <li class="nav__item" data-path="dashboard">
+                <a href="/">Dashboard</a></li>
+            <li class="nav__item" data-path="readings">
+                <a href="/readings">Readings</a>
+            </li>
+            <li class="nav__item" data-path="charts">
+                <a href="/charts">Charts</a>
+            </li>
+        </ul>
+    </div>
 </header>

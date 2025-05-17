@@ -39,7 +39,11 @@
         <h2 class="section__title">Latest Reading</h2>
     </div>
     <div class="latest-reading">
-        {{>reading}}
+        {{#if hasReadings}}
+            {{>reading}}
+            <a href="/readings" class="seeAll">See all readings</a>
+        {{else}}
+            <p>No readings to show.</p>
+        {{/if}}
     </div>
-    <a href="/readings">See all readings</a>
 </section>

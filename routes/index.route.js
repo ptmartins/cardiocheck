@@ -29,13 +29,14 @@ router.get('/', async (req, res) => {
             dashSys: sysAvg !== 0 ? sysAvg.toFixed(1) : '-',
             dashDia: diaAvg !== 0 ? diaAvg.toFixed(1) : '-',
             dashBpm: bpmAvg !== 0 ? bpmAvg.toFixed(1) : '-',
+            hasReadings: readings[readings.length - 1] !== undefined,
             date: readings[readings.length - 1] !== undefined ? new Date(readings[readings.length - 1].date).toLocaleString() : '-',
             sys: readings[readings.length - 1] !== undefined ? readings[readings.length - 1].sys : '-',
             dia: readings[readings.length - 1] !== undefined ? readings[readings.length - 1].dia : '-',
             bpm: readings[readings.length - 1] !== undefined ? readings[readings.length - 1].bpm : '-'
         });
     } catch (err) {
-
+        console.log(err);
     }
 });
 

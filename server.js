@@ -12,14 +12,15 @@ import { engine } from 'express-handlebars';
 import indexRouter from './routes/index.route.js';
 import readingsRouter from './routes/readings.route.js';
 import apiRouter from './routes/api.route.js';
+import chartsRouter from './routes/charts.route.js';
 import bodyParser from 'body-parser';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();  
-const port = process.env.MONGODB_URI || process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
-mongoose.connect(process.env.DB_URL, {
+mongoose.connect(process.env.DB_URI, {
     useNewUrlParser: true
 })
 .then(() => {
@@ -46,12 +47,13 @@ app.set('views', __dirname + '/views');
 app.use(express.static('public'));
 app.use('/', indexRouter);
 app.use('/readings', readingsRouter);
+app.use('/charts', chartsRouter);
 app.use('/api', apiRouter);
 app.use((req, res, next) => {
     res.status(404).render('404', {
         layout: 'main',
         errorStatus: '404',
-        errorMessage: 'Page not found'
+        errorMessage: 'Page not found!'
     });
   });
   app.use(bodyParser.urlencoded({ 

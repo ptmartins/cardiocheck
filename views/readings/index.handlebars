@@ -5,7 +5,7 @@
     {{#if readings}}
         <div class="readings">
             {{#each readings}}
-                {{>reading date=(formatDate this.date) sys=this.sys dia=this.dia bpm=this.bpm}}
+                {{>reading date=(formatDate this.dateTime) sys=this.sys dia=this.dia bpm=this.bpm}}
             {{/each}}
         </div>
     {{else}}

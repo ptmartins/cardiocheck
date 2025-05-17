@@ -25,7 +25,7 @@
 }
 
 html {
-    font-size: 16px;
+    font-size: 15px;
 }
 
 a, .u-link {
@@ -58,10 +58,6 @@ ul {
     color: var(--white);
 }
 
-html {
-    font-size: 16px;
-}
-
 body {
     background-color: var(--bg-color);
     display: flex;
@@ -70,7 +66,8 @@ body {
     font-family: "Inter", sans-serif;
     font-size: 1rem;
     line-height: 1.5;
-    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
     padding: 3rem;
 }
 
@@ -79,9 +76,10 @@ body {
     flex-direction: column;
     flex-grow: 1;
     height: 100%;
-    margin: 0 auto;
     justify-content: space-between;
-    width: 1440px;
+    margin: 0 auto;
+    max-width: 1440px;
+    width: 100%;
 }
 
 .wrapper {
@@ -90,7 +88,6 @@ body {
     flex-grow: 1;
     margin-block-end: 3rem;
     min-height: 50vh;
-    padding: 3rem;
 }
 
 .header {
@@ -106,12 +103,48 @@ body {
 }
 
 .nav {
+    display: none;
     font-size: 1.2rem;
+    margin-inline: auto 3rem;
 }
 
 .nav__list {
     display: flex;
     gap: 1.5rem;
+}
+
+.nav__item {
+    cursor: pointer;
+    position: relative;
+
+    &.current::before {
+        background-color: var(--font-color);
+        content: '';
+        height: 4px;
+        inset-block-end: -8px;
+        position: absolute;
+        width: 100%;
+    }
+}
+
+.nav__item.current a {
+    font-weight: 700;
+}
+
+.mobileNav {
+    position: relative;
+}
+
+.mobileNav__toggle {
+    cursor: pointer;
+    user-select: none;
+}
+
+.mobileNav__list {
+    background-color: var(--bg-color);
+    inset-inline-end: 0;
+    padding: .75rem;
+    position: absolute;
 }
 
 .main {
@@ -123,6 +156,7 @@ body {
 
 .dashboard {
     display: flex;
+    flex-direction: column;
     gap: 1.5rem;
     justify-content: space-between;
     margin-block-end: 3rem;
@@ -164,6 +198,11 @@ body {
     padding: .75rem;
 }
 
+.slot__icon--date,
+.reading__icon--date {
+    background-color: var(--bg-color);
+}
+
 .slot__icon--sys,
 .reading__icon--sys {
     background-color: var(--slot-icon-sys-bg-color);
@@ -196,7 +235,8 @@ body {
 
 .reading {
     display: flex;
-    gap: 3rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
     margin-block-end: .75rem;
 }
 
@@ -212,6 +252,16 @@ body {
     position: relative;
 }
 
+.reading__date {
+    width: 100%;
+}
+
+.reading__sys, 
+.reading__dia, 
+.reading__bpm {
+    width: calc(33% - 1.5rem);
+}
+
 .reading__icon {
     border-radius: 5px;
     font-size: 2rem;
@@ -225,6 +275,7 @@ body {
 
 .form--addNew {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 3rem;
 
@@ -246,20 +297,34 @@ body {
 
 .form__field {
     margin-block-end: 1.5rem;
+    width: 100%;
 }
 
 .form__label {
     display: block;
-    font-size: .9rem;
+    font-size: 14px;
     font-weight: 600;
-    margin-block-end: .75rem;;
+    margin-block-end: .75rem;
 }
 
 .form__input {
     border: 2px solid var(--black);
     border-radius: var(--border-radius);
     font-size: 1rem;
-    padding: 1rem;
+    padding: 1.5rem;
+    width: 100%;
+}
+
+.seeAll {
+    display: inline-block;
+    margin-block-start: 1.5rem;
+}
+
+.chart__actions {
+    display: flex;
+    gap: .75rem;
+    justify-content: flex-end;
+    margin-block-end: 3rem;
 }
 
 .error {
@@ -274,12 +339,12 @@ body {
 .error__status {
     font-size: 14rem;
     font-weight: 700;
-    margin-block-end: 3rem;
+    line-height: 1.3;
 }
 
 .error__message {
-    font-size: 1.3rem;
-    margin-block-end: 1.5rem;
+    font-size: 1.8rem;
+    margin-block-end: 6rem;
 }
 
 .errorMsg {
@@ -288,4 +353,56 @@ body {
     inset-block-start: -3rem;
     padding: .375rem .75rem;
     position: absolute;
+}
+
+.isHidden {
+    display: none;
+}
+
+
+@media all and (min-width: 800px) {
+    .form--addNew {
+        flex-direction: row;
+    }
+
+    .form__field {
+        width: calc(50% - 1.5rem);
+    }
+
+    .nav {
+        display: block;
+    }
+
+    .mobileNav {
+        display: none;
+    }
+}
+
+
+@media all and (min-width: 960px) {
+    .dashboard {
+        flex-direction: row;;
+    }
+
+    .reading {
+        gap: 3rem;
+    }
+
+    .reading__date,
+    .reading__sys,
+    .reading__dia,
+    .reading__bpm {
+        width: auto;
+    }
+
+    .form__field {
+        width: calc(33% - 3rem);
+    }
+}
+
+@media all and (min-width: 1200px) {
+
+    .form__field {
+        width: auto;
+    }
 }
