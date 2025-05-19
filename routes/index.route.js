@@ -4,6 +4,8 @@ import Readings from '../models/readings.model.js';
 const router = express.Router();
 
 router.get('/', async (req, res) => {
+
+    
     try {
         const readings = await Readings.find();
 
